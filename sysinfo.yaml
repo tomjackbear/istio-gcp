@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysinfo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: sysinfo
+  template:
+    metadata:
+      labels:
+        app: sysinfo
+    spec:
+      containers:
+      - image: gcr.io/istio-test-274718/sysinfo:latest
+        name: sysinfo
+        ports:
+        - containerPort: 5000
