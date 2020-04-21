@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sysinfo
+  name: reflect
 spec:
   replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: sysinfo
+      app: reflect
   template:
     metadata:
       labels:
-        app: sysinfo
+        app: reflect
     spec:
       containers:
-      - image: gcr.io/istio-test-274718/sysinfo:latest
-        name: sysinfo
+      - image: gcr.io/istio-test-274718/reflect:latest
+        name: reflect
         ports:
-        - containerPort: 5000
+        - containerPort: 4000
